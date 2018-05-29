@@ -1,0 +1,42 @@
+ <section class="section">
+<div class="container">
+<section class="hero is-info">
+<div class="hero-body">
+    <div class="container">
+    
+                    <h1 class="title is-1"><span>Hi</span> Welcome to Kapyenga, shorten your urls in a breeze</h1>
+             
+    </div>
+</div>
+</section>
+<p id="notice"><%= notice %></p>
+
+<h1>Links</h1>
+
+<table style='border-spacing: 15px'>
+  <thead>
+    <tr>
+      <th>Original</th>
+      <th>Url code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td style='border-spacing: 15px' ><%= link.original %></td>&nbsp
+        <td style='border-spacing: 15px'><%= link.url_code %></td>&nbsp
+        <td style='border-spacing: 15px'><%= link_to 'Show', link, class: "tag is-success" %></td> &nbsp
+        <td style='border-spacing: 15px'><%= link_to 'Edit', edit_link_path(link), class: "tag is-warning" %></td>&nbsp
+        <td style='border-spacing: 15px'><%= link_to 'Destroy', link, class: "tag is-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Link', new_link_path %>
+</div>
+</section>

@@ -1,0 +1,17 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Original:</strong>
+  <%= @link.original %>
+</p>
+
+<p>
+  <strong>Url code:</strong>
+  <%= @link.url_code %>
+</p>
+<p><%= link_to "#{@my_url + "/" + @link.url_code}", "#{@link.original}", target: "_blank" %></p>
+<p><%= @my_urll%></p>
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
+</div>

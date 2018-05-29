@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>bulma cards</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css'>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+        <link rel="stylesheet" href="../css/kanban.css">
+    </head>
+    <body>
+        <nav class="navbar has-shadow">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="../"><img src="http://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox"/></a>
+                <div class="navbar-burger burger" data-target="navMenu"><span></span><span></span><span></span></div>
+            </div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable"><a class="navbar-link">Account</a>
+                    <div class="navbar-dropdown">
+                     <% if user_signed_in? %>
+                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-item' %>
+                    <% end %>
+                    <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-item'  %>
+                    <%= link_to "Login", new_user_session_path, :class => 'navbar-item'  %>
+                    <% if user_signed_in? %>
+                    <hr class="navbar-divider" />
+                    <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</nav>
+
+
+
+
+</div>
+
+ 
+
+<div class="columns is-mobile is-centered">
+<div class="column is-half is-narrow"></div>
+</div>
+<footer>
+<div class="box cta">
+    <div class="columns is-mobile is-centered">
+        <div class="field is-grouped is-grouped-multiline">
+            <div class="control">
+                <div class="tags has-addons"><a class="tag is-link" href="https://github.com/dansup/bulma-templates">Bulma Templates</a><span class="tag is-light">Daniel Supernault</span></div>
+            </div>
+            <div class="control">
+                <div class="tags has-addons"><a class="tag is-link">The source code is licensed</a><span class="tag is-light">MIT  <i class="fa fa-github"></i></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+</footer>
+<script src="../js/bulma.js"></script>
+</body>
+</html>
