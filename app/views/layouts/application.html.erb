@@ -1,18 +1,73 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Kapyenga</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-   <p class="notice"><%= notice %></p>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Kapyenga</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css'>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+        <link rel="stylesheet" href="../css/kanban.css">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+     <p class="notice success"><%= notice %></p>
    <p class="alert"><%= alert %></p>
-
+  </div>
+  <section class="hero is-dark is-medium is-bold">
+            <div class="hero-head">
+                <nav class="navbar">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a class="navbar-item" href="../">
+                                <h1 class="title is-1"> Kapyenga</h1>
+                            </a>
+                            <span class="navbar-burger burger" data-target="navbarMenu">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </div>
+                        <div id="navbarMenu" class="navbar-menu">
+                            <div class="navbar-end">
+                                <div class="tabs is-right">
+                                    <ul>
+                                        <li class="is-active"><a href="/">Home</a></li>
+                                         <% unless user_signed_in? %>
+                                         <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-item'  %>
+                                         <%= link_to "Login", new_user_session_path, :class => 'navbar-item'  %>
+                                         <% end %>
+                                         <% if user_signed_in? %>
+                                         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-item'  %>
+                                         <% end %>
+                                    </ul>
+                                   </div>
+                            </div>
+                         </div>
+                    </div>
+                </nav>
+            </div>
+ 
     <%= yield %>
+    <footer class="footer">
+            <div class="container">
+              <div class="content has-text-centered">
+                    <p>
+                       
+                    </p>
+                    <div class="control level-item">
+                        
+                            <div class="tags has-addons">
+                                <span class="tag is-dark">Kapyenga</span>
+                                <span class="tag is-info">MIT license</span>
+                            </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <script src="../js/bulma.js"></script>
+        </footer>
   </body>
 </html>

@@ -3,6 +3,7 @@ class Link < ApplicationRecord
   belongs_to :user, optional: true
   validates :url_code, uniqueness: true
   validates :original, presence: true, url: true
+  validates :original, uniqueness:{ message: 'You have already shortened that URL before' }
 
   def generate_code(size = 5)
     charset = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}

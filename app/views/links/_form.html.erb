@@ -12,14 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :original, class: "label" %>
-    <%= form.text_field :original, placeholder: "Link should starts with either http:// or https://", class: "input"  %>
+    <%= form.label :original_Link, class: "label" %>
+    <%= form.text_field :original, placeholder: "Link should start with either http:// or https://", class: "input"  %>
   </div>
 
-  <div class="field">
-    <%= form.label :url_code , class: "label" %>
-    <%= form.text_field :url_code, class: "input"  %>
-  </div>
 
   <div class="control ">
     <%= form.submit class: "control button is-primary"  %>

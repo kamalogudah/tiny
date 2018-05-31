@@ -30,12 +30,8 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.find_by_original(params[:original])
-    if @link
-      redirect_to @link
-    else
-      @link = Link.new(link_params)
-      @original = params[:original]
+    @link = Link.new(link_params)
+    @link.user_id = current_user.id
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
@@ -44,7 +40,6 @@ class LinksController < ApplicationController
         format.html { render :new }
         format.json { render json: @link.errors, status: :unprocessable_entity }
       end
-    end
     end
   end
 

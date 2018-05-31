@@ -1,42 +1,59 @@
- <section class="section">
-<div class="container">
-<section class="hero is-info">
-<div class="hero-body">
-    <div class="container">
-    
-                    <h1 class="title is-1"><span>Hi</span> Welcome to Kapyenga, shorten your urls in a breeze</h1>
-             
-    </div>
-</div>
-</section>
-<p id="notice"><%= notice %></p>
+<section class="section">
+  <div class="container">
+    <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Hello, <%= current_user.email %>
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
+      </div>
+    </section>
 
-<h1>Links</h1>
-
-<table style='border-spacing: 15px'>
-  <thead>
-    <tr>
-      <th>Original</th>
-      <th>Url code</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td style='border-spacing: 15px' ><%= link.original %></td>&nbsp
-        <td style='border-spacing: 15px'><%= link.url_code %></td>&nbsp
-        <td style='border-spacing: 15px'><%= link_to 'Show', link, class: "tag is-success" %></td> &nbsp
-        <td style='border-spacing: 15px'><%= link_to 'Edit', edit_link_path(link), class: "tag is-warning" %></td>&nbsp
-        <td style='border-spacing: 15px'><%= link_to 'Destroy', link, class: "tag is-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Link', new_link_path %>
-</div>
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="card events-card">
+                            <header class="card-header">
+                                <p class="card-header-title">
+                                    Your Links
+                                </p>
+                                <a href="#" class="card-header-icon" aria-label="more options">
+                  <span class="icon">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                 </a>
+                            </header>
+                            <div class="card-table">
+                                <div class="content">
+                                    <table class="table is-fullwidth is-striped">
+                                        <thead>
+                           <tr>
+                        <th>Original</th>
+                        <th>Url code</th>
+                        <th colspan="3"></th>
+                                </tr>
+                                 </thead>
+                                        <tbody>
+                                           <% @links.each do |link| %>
+                                            <tr>
+                                              <td style='border-spacing: 15px' ><%= link.original %></td>&nbsp
+                                              <td style='border-spacing: 15px'><%= link.url_code %></td>&nbsp
+                                              <td style='border-spacing: 15px'><%= link_to 'Show', link, class: "tag is-success" %></td> &nbsp
+                                              <td style='border-spacing: 15px'><%= link_to 'Edit', edit_link_path(link), class: "tag is-warning" %></td>&nbsp
+                                              <td style='border-spacing: 15px'><%= link_to 'Destroy', link, class: "tag is-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+                                            </tr>
+                                               <% end %>
+                                            </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <footer class="card-footer">
+                              <%= link_to  'Create New Link', new_link_path, class: "card-footer-item" %>
+                            </footer>
+                        </div>
+                    </div>
+   </div>
 </section>
